@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
       android:name=".MainApplication"
@@ -22,5 +27,19 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+        <service android:name="com.rapsssito.backgroundactions.BackgroundActionsService" />
+
+      <receiver android:name=".AlarmReceiver" android:exported="true" android:enabled="true"/>
+      <service android:name=".MyTaskService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true" android:enabled="true"/>   
+      <!-- Register the HeadlessJsTaskService -->
+      <!-- <receiver android:name=".AlarmReceiver" /> -->
+      <!-- <receiver android:name=".AlarmReceiver" android:enabled="true" android:exported="false" android:permission="android.permission.SET_ALARM">
+        <intent-filter> 
+          <action android:name="com.awesomeproject.ALARM" />
+        </intent-filter>
+      </receiver> -->
+
+        <!-- <service android:name=".AlarmService" android:exported="false" android:permission="android.permission.BIND_JOB_SERVICE" />
+        <receiver android:name=".AlarmReceiver" /> -->
     </application>
 </manifest>
