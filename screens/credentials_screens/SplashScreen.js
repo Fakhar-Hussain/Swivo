@@ -6,8 +6,8 @@ const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <Animatable.View
-        animation={'flash'}
-        duration={1400}
+        animation={'pulse'}
+        duration={2000}
     >
             <Image
               style={styles.tinyLogo}
